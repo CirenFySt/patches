@@ -1,0 +1,28 @@
+--- forge\patches\minecraft_server\net\minecraft\src\ConsoleCommandHandler.java.patch	Fri Aug  3 16:56:50 2012
++++ forge\patches\minecraft_server\net\minecraft\src\ConsoleCommandHandler.java.patch	Sun Jun  1 01:24:03 2014
+@@ -50,10 +50,10 @@
+  
+                                  if ("add".equalsIgnoreCase(var19))
+                                  {
+--                                    for (var21 = 0; var21 < this.minecraftServer.worldMngr.length; ++var21)
++-                                    for (var20 = 0; var20 < this.minecraftServer.worldMngr.length; ++var20)
+ +                                    for (World world : DimensionManager.getWorlds())
+                                      {
+--                                        var24 = this.minecraftServer.worldMngr[var21];
++-                                        var24 = this.minecraftServer.worldMngr[var20];
+ -                                        var24.advanceTime(var24.getWorldTime() + (long)var23);
+ +                                        world.advanceTime(world.getWorldTime() + (long)var23);
+                                      }
+@@ -62,10 +62,10 @@
+                                  }
+                                  else if ("set".equalsIgnoreCase(var19))
+                                  {
+--                                    for (var21 = 0; var21 < this.minecraftServer.worldMngr.length; ++var21)
++-                                    for (var20 = 0; var20 < this.minecraftServer.worldMngr.length; ++var20)
+ +                                    for (World world : DimensionManager.getWorlds())
+                                      {
+--                                        var24 = this.minecraftServer.worldMngr[var21];
++-                                        var24 = this.minecraftServer.worldMngr[var20];
+ -                                        var24.advanceTime((long)var23);
+ +                                        world.advanceTime((long)var23);
+                                      }
